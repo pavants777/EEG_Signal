@@ -42,7 +42,7 @@ class AnimatedEEGSignal extends StatefulWidget {
 
 class _AnimatedEEGSignalState extends State<AnimatedEEGSignal> {
   List<double> eegSignalData = List.generate(100, (index) => 0.0);
-  double frequency = 100;
+  double frequency = 50;
   final int duration = 10; // seconds
   final int numberOfPoints = 100;
 
@@ -116,7 +116,7 @@ class _AnimatedEEGSignalState extends State<AnimatedEEGSignal> {
                 titlesData: FlTitlesData(show: false),
                 borderData: FlBorderData(show: true),
                 minX: 0,
-                maxX: frequency.toDouble(),
+                maxX: frequency < 60 ? 1.5 * frequency.toDouble() : 60,
                 minY: -1.5,
                 maxY: 2,
                 lineBarsData: [
