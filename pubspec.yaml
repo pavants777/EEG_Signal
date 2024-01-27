@@ -33,6 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_fft: ^1.0.2+6
+  google_fonts: ^6.1.0
   syncfusion_flutter_charts: ^24.1.47+2
 
 dev_dependencies:

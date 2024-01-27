@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:eeg_signal/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,7 +13,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        useMaterial3: true,
+        textTheme: GoogleFonts.assistantTextTheme(
+          Theme.of(context).textTheme.apply(
+                bodyColor: AppColors.mainTextColor3,
+              ),
+        ),
+        scaffoldBackgroundColor: AppColors.pageBackground,
+      ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
@@ -31,7 +42,7 @@ class AnimatedEEGSignal extends StatefulWidget {
 
 class _AnimatedEEGSignalState extends State<AnimatedEEGSignal> {
   List<double> eegSignalData = List.generate(100, (index) => 0.0);
-  double frequency = 1;
+  double frequency = 100;
   final int duration = 10; // seconds
   final int numberOfPoints = 100;
 
